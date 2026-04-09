@@ -6,4 +6,4 @@ Orientador: Professor Paulo Meirelles
 
 Link da página: https://ciriacairic.github.io/tcc/
 
-## Tema Aprimoramento do Cregit: Evolução da Análise de Autoria de Código em Nível de Token
+## Tema cregit+: Evoluindo a Análise de Autoria de Código em Nível de Token
