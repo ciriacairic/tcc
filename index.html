@@ -193,6 +193,7 @@
             <div class="is-size-5 publication-authors" style="margin-top: 1rem; margin-bottom: 1rem;">
               <p><strong>Aluno:</strong> Lucca Ciriac Vilhena Oliveira</p>
               <p><strong>Orientador:</strong> Paulo Roberto Miranda Meirelles</p>
+              <p><strong>Coorientador:</strong> Arthur Pilone Maia da Silva</p>
               <p style="margin-top: 0.5rem; color: #555;">Instituto de Matemática e Estatística — Universidade de São Paulo (IME-USP)</p>
             </div>
 
@@ -253,7 +254,7 @@
             Um problema com o git blame tradicional é que ele atribui a autoria de uma linha inteira ao autor do último commit que a alterou, ignorando os autores dos outros commits que alteraram essa linha no passado. Ou seja, é possível que uma mudança simples ou uma reformatação façam com que o desenvolvedor original não seja mais identificado facilmente. E em projetos de longa duração como o kernel Linux, que tem mais de 30 anos de existência e uma quantidade massiva de commits, tendem a ser mais impactados.
           </p>
           <p>
-            Então, visando analisar evolução de software, recomendação de especialistas e análise de questões legais como propriedade intelectual de código, o Cregit nasceu como uma ferramenta open source que estende a funcionalidade do git blame original com uma abordagem de análise em nível de token em vez de nível de linha. Ele tokeniza o código-fonte, dividindo nas suas menores unidades sintáticas (palavras-chave, identificadores, operadores, pontuação), criando um outro repositório capaz de rastrear cada token individualmente através do histórico do repositório.
+            Então, visando apoiar estudos sobre a evolução de sistemas de software, a identificação de desenvolvedores especialistas, e a análise de questões legais como propriedade intelectual de código, o Cregit nasceu como uma ferramenta open source que estende a funcionalidade do git blame original com uma abordagem de análise em nível de token em vez de nível de linha. Ele tokeniza o código-fonte, dividindo nas suas menores unidades sintáticas (palavras-chave, identificadores, operadores, pontuação), criando um outro repositório capaz de rastrear cada token individualmente através do histórico do repositório.
           </p>
           <p>
             A motivação para este trabalho vem tanto de dificuldades práticas do Cregit quanto da continuidade de seu objetivo de fidelizar contribuições aos autores. Primeiramente, a ferramenta apresenta barreiras de uso, tendo uma instalação complexa e ausência de padronização de ambiente. Além disso, com a introdução da linguagem Rust no kernel Linux a partir de 2025, o Cregit não é mais capaz de cumprir 100% de seu objetivo, já que ainda não possui um tokenizador adequado para essa linguagem.
