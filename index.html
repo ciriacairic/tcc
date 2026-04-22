@@ -6,13 +6,10 @@
   
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="cregit+: Evoluindo a Análise de Autoria de Código em Nível de Token">
+  <meta name="description" content="TCC de Lucca Ciriac Vilhena Oliveira (IME-USP): melhorias no Cregit para análise de autoria de código em nível de token, com suporte a Rust e ambiente padronizado.">
+  <meta name="keywords" content="cregit, git blame, autoria de código, mineração de repositórios, Rust, kernel Linux, engenharia de software">
+  <meta name="author" content="Lucca Ciriac Vilhena Oliveira, Paulo Roberto Miranda Meirelles">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
   
@@ -193,6 +190,12 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">cregit+: Evoluindo a Análise de Autoria de Código em Nível de Token</h1>
 
+            <div class="is-size-5 publication-authors" style="margin-top: 1rem; margin-bottom: 1rem;">
+              <p><strong>Aluno:</strong> Lucca Ciriac Vilhena Oliveira</p>
+              <p><strong>Orientador:</strong> Paulo Roberto Miranda Meirelles</p>
+              <p style="margin-top: 0.5rem; color: #555;">Instituto de Matemática e Estatística — Universidade de São Paulo (IME-USP)</p>
+            </div>
+
                   <div class="column has-text-centered">
                     <div class="publication-links">
                       <span class="link-block">
@@ -244,13 +247,16 @@
             O objetivo deste Trabalho de Conclusão de Curso é propor e implementar melhorias no Cregit, uma ferramenta que estende a funcionalidade do git blame ao permitir a análise de autoria em nível de token.
           </p>
           <p>
+            O git blame é um comando do sistema de controle de versão Git que exibe, para cada linha de um arquivo, qual foi o último commit que a modificou, quem realizou esse commit e quando. É uma ferramenta bastante utilizada para identificar a origem de trechos de código, que possibilita entender o histórico de alterações e identificar quem foi responsável por determinadas decisões de implementação.
+          </p>
+          <p>
             Um problema com o git blame tradicional é que ele atribui a autoria de uma linha inteira ao autor do último commit que a alterou, ignorando os autores dos outros commits que alteraram essa linha no passado. Ou seja, é possível que uma mudança simples ou uma reformatação façam com que o desenvolvedor original não seja mais identificado facilmente. E em projetos de longa duração como o kernel Linux, que tem mais de 30 anos de existência e uma quantidade massiva de commits, tendem a ser mais impactados.
           </p>
           <p>
-            Então, visando analisar evolução de software, recomendação de especialistas e análise de questões legais como propriedade intelectual de código, o Cregit vem com uma abordagem de análise a nível de token, que permite rastrear com maior precisão cada contribuição.
+            Então, visando analisar evolução de software, recomendação de especialistas e análise de questões legais como propriedade intelectual de código, o Cregit nasceu como uma ferramenta open source que estende a funcionalidade do git blame original com uma abordagem de análise em nível de token em vez de nível de linha. Ele tokeniza o código-fonte, dividindo nas suas menores unidades sintáticas (palavras-chave, identificadores, operadores, pontuação), criando um outro repositório capaz de rastrear cada token individualmente através do histórico do repositório.
           </p>
           <p>
-            A motivação para este trabalho nasce tanto de dificuldades práticas do Cregit quanto da continuidade de seu objetivo de fidelizar contribuições aos autores. Primeiramente, a ferramenta apresenta barreiras de uso, tendo uma instalação complexa e ausência de padronização de ambiente. Além disso, com a introdução da linguagem Rust no kernel Linux a partir de 2025, o Cregit não é mais capaz de cumprir 100% de seu objetivo, já que ainda não possui um tokenizador adequado para essa linguagem.
+            A motivação para este trabalho vem tanto de dificuldades práticas do Cregit quanto da continuidade de seu objetivo de fidelizar contribuições aos autores. Primeiramente, a ferramenta apresenta barreiras de uso, tendo uma instalação complexa e ausência de padronização de ambiente. Além disso, com a introdução da linguagem Rust no kernel Linux a partir de 2025, o Cregit não é mais capaz de cumprir 100% de seu objetivo, já que ainda não possui um tokenizador adequado para essa linguagem.
           </p>
           <p>
             Dessa forma, a fim de aumentar sua usabilidade e abrangência, este trabalho propõe: (i) a padronização do ambiente de execução do Cregit, (ii) a extensão do suporte a novas linguagens, com foco em Rust, e (iii) melhorias gerais no software como na visualização e extração de informações do output gerado, tornando-o mais estruturado e navegável.
@@ -261,6 +267,58 @@
   </div>
 </section>
 <!-- End Proposta -->
+
+<!-- Plano de Trabalho -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Plano de Trabalho</h2>
+        <div class="content has-text-justified">
+          <p>O trabalho será desenvolvido ao longo de dois semestres, com as seguintes etapas:</p>
+
+          <h4 class="title is-5" style="margin-top: 1.5rem;">1º Semestre — Estudo e Planejamento</h4>
+          <ul>
+            <li>Levantamento das dificuldades de instalação e execução da ferramenta em diferentes ambientes;</li>
+            <li>Padronização do ambiente de execução;</li>
+            <li>Estudo aprofundado da arquitetura e do funcionamento interno do Cregit;</li>
+            <li>Início da implementação do tokenizador para a linguagem Rust;</li>
+          </ul>
+
+          <h4 class="title is-5" style="margin-top: 1.5rem;">2º Semestre — Implementação e Validação</h4>
+          <ul>
+            <li>Implementação do tokenizador para a linguagem Rust;</li>
+            <li>Outras melhorias como na visualização e extração de dados do output gerado pelo Cregit;</li>
+            <li>Escrita e revisão do texto final do TCC.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Plano de Trabalho -->
+
+<!-- Referências -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Referências</h2>
+        <div class="content has-text-justified">
+          <ol>
+            <li>
+              German, D. M., Adams, B. &amp; Stewart, K.
+              <em>cregit: Token-level blame information in git version control repositories</em>.
+              Empirical Software Engineering, v. 24, p. 2725–2763, 2019.
+              <a href="https://doi.org/10.1007/s10664-019-09704-x" target="_blank">https://doi.org/10.1007/s10664-019-09704-x</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Referências -->
 
   <footer class="footer">
   <div class="container">
